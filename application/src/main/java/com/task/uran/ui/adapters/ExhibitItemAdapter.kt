@@ -1,14 +1,12 @@
 package com.task.uran.ui.adapters
 
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.request.RequestOptions
 import com.task.model.entities.Exhibit
 import com.task.uran.R
-import com.task.uran.di.GlideApp
 import com.task.uran.inflate
+import com.task.uran.load
 import kotlinx.android.synthetic.main.item_exhibit.view.*
 
 class ExhibitItemAdapter(private val exhibit:Exhibit) : RecyclerView.Adapter<ExhibitItemAdapter.ProductItemViewHolder>() {
@@ -28,13 +26,7 @@ class ExhibitItemAdapter(private val exhibit:Exhibit) : RecyclerView.Adapter<Exh
     class ProductItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(image: String, title:String) = with(itemView) {
             item_product_title.text = title
-            GlideApp.with(this)
-                .load(image)
-                .apply(
-                    RequestOptions()
-                    .placeholder(R.drawable.ic_broken_image_white)
-                )
-                .into(item_product_img)
+            item_product_img load image
         }
     }
 }
