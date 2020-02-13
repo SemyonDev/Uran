@@ -1,0 +1,2 @@
+include ':application', ':model', ':fileexhibitsloader'
+rootProject.name='Uran'
