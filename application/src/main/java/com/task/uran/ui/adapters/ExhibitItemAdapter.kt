@@ -8,14 +8,14 @@ import com.bumptech.glide.request.RequestOptions
 import com.task.model.entities.Exhibit
 import com.task.uran.R
 import com.task.uran.di.GlideApp
+import com.task.uran.inflate
 import kotlinx.android.synthetic.main.item_exhibit.view.*
 
 class ExhibitItemAdapter(private val exhibit:Exhibit) : RecyclerView.Adapter<ExhibitItemAdapter.ProductItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductItemViewHolder {
         return ProductItemViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_exhibit, parent, false)
+            parent inflate R.layout.item_exhibit
         )
     }
 

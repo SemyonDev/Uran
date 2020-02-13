@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.task.model.entities.Exhibit
 import com.task.uran.R
+import com.task.uran.inflate
 import kotlinx.android.synthetic.main.item_exhibitlist.view.*
 import java.util.*
 
@@ -16,8 +17,7 @@ class ExhibitListAdapter : RecyclerView.Adapter<ExhibitListAdapter.ProductItemVi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductItemViewHolder {
         return ProductItemViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_exhibitlist, parent, false)
+            parent inflate R.layout.item_exhibitlist
         )
     }
 

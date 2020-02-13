@@ -20,13 +20,16 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val adapter = ExhibitListAdapter()
-        activity_main_rv.adapter = adapter
-        activity_main_rv.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        val exhibitListAdapter = ExhibitListAdapter()
+
+        activity_main_rv.run {
+            adapter = exhibitListAdapter
+            layoutManager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+        }
 
         viewModel.dataLD.observe(this, Observer {
-            adapter.setData(it)
+            exhibitListAdapter.setData(it)
         })
 
         viewModel.emptyDataLD.observe(this, Observer {
